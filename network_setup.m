@@ -1,22 +1,39 @@
 
+
+
+
+
+
 %data initialize
-%%ratTrainData= preprocess();
+%ratTrainData= preprocess();
 
 
 xsize= 640; %both temp., will replace with values from preprocessing
 ysize= 480;
 
 %sets the size of the input images
-imageSize= [xsize ysize 3]; 
+imageSize= [ysize xsize 3]; 
 classesNum= 1; %for now this is just 1(rat),
                 %could be more if we look for more features later
 
 % load dataset here (processed image, box labels)
+%Preprocess Data
+processedTrainData= transform(augmentedTrainData, @(data)preprocessData(data,imageSize));
+processedValData= transform(valData, @(data)preprocessData(data,imageSize));
+
+data= read(processedTrainData);
+
+I = data{1};
+bbox = data{2};
+annotatedImage = insertShape(I,'Rectangle',bbox);
+annotatedImage = imresize(annotatedImage,2);
+figure
+imshow(annotatedImage)
 
 %This will estimate the proper anchor box size based on the boxes
 %that we have drawn on the training data
 numAnchors= 5;
-[boxes, meanIoU]=estimateAnchorBoxes(ratTrainData,numAnchors);
+[boxes, meanIoU]=estimateAnchorBoxes(processedTrainData,numAnchors);
 
 %load feature extration network (too complicated to make ourselves)
 %could try replacing with a scanning window if we hate ourselves later

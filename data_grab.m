@@ -39,3 +39,17 @@ imageWBox= insertShape(I,"Rectangle",bbox);
 imageWBox= imresize(imageWBox,2);
 figure
 imshow(imageWBox)
+
+%Augment Training Data
+augmentedTrainData= transform(trainingData,@augmentData);
+
+% Visualize the augmented images.
+augmentedData = cell(4,1);
+for k = 1:4
+    data = read(augmentedTrainData);
+    augmentedData{k} = insertShape(data{1},'Rectangle',data{2});
+    reset(augmentedTrainData);
+end
+figure
+montage(augmentedData,'BorderSize',10)
+
