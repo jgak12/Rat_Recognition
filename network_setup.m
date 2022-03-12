@@ -1,10 +1,10 @@
 
 %data initialize
-ratTrainData= preprocess()
+%%ratTrainData= preprocess();
 
 
-xsize= 224; %both temp., will replace with values from preprocessing
-ysize= 224;
+xsize= 640; %both temp., will replace with values from preprocessing
+ysize= 480;
 
 %sets the size of the input images
 imageSize= [xsize ysize 3]; 
