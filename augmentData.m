@@ -2,7 +2,7 @@
 %This function needs to randomly flip, and scale data
 %should also do the same to all the boxes
 %Also color jitter
-%NOTE: NOT OUR CODE, MATLAB PROVIDED
+%NOTE: NOT OUR CODE, MATLAB PROVIDED (edited now)
 %we should probably do this on our own but for now i am going to borrow their code 
 
 function B = augmentData(A)
@@ -16,22 +16,22 @@ function B = augmentData(A)
     sz = size(I);
     if numel(sz)==3 && sz(3) == 3
         I = jitterColorHSV(I,...
-            'Contrast',0.2,...
+            'Contrast',0.1,...
             'Hue',0,...
-            'Saturation',0.1,...
-            'Brightness',0.2);
+            'Saturation',0.05,...
+            'Brightness',0.1);
     end
     
     % Randomly flip and scale image.
-    tform = randomAffine2d('XReflection',true,'Scale',[1 1.1]);
-    rout = affineOutputView(sz,tform,'BoundsStyle','CenterOutput');
-    B{1} = imwarp(I,tform,'OutputView',rout);
+    tform = randomAffine2d('XReflection',true,'YReflection',true);
+    %rout = affineOutputView(sz,tform,'BoundsStyle','CenterOutput');
+    B{1} = imwarp(I,tform);
     
     % Sanitize box data, if needed.
     A{2} = helperSanitizeBoxes(A{2}, sz);
     
     % Apply same transform to boxes.
-    [B{2},indices] = bboxwarp(A{2},tform,rout,'OverlapThreshold',0.25);
+    [B{2},indices] = bboxwarp(A{2},tform,'OverlapThreshold',0.25);
     B{3} = A{3}(indices);
     
     % Return original data only when all boxes are removed by warping.

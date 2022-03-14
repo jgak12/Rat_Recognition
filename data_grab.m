@@ -5,7 +5,7 @@ origData= prac_data;
 
 rng(0);
 shuffleIndices=randperm(height(origData)); % randomizes order of image indices
-idx= floor(0.8 * length(shuffleIndices)); %sets first 60%
+idx= floor(0.6 * length(shuffleIndices)); %sets first 60%
 
 trainingIdx= 1:idx;
 trainingSet= origData(shuffleIndices(trainingIdx),:); %pulls first 60% of data into training
