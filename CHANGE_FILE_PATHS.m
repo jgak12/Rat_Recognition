@@ -5,8 +5,16 @@
     practice.DataSource
     %for i=1:size(practice.DataSource,1)
     i=1;
+%         a= practice.DataSource{i,1}; %works for mac not PC?
+        class(practice.DataSource)
         a= practice.DataSource{i,1};
-        currentpath= a(1:35); %specific to Rayna's file path, change later (35 for rayna?)
+        
+        %APPARENTLY IT IS ABSOLUTELY IMPERATIVE THAT THE NEXT LINE INCLUDES
+        %THE ENTIRE CURRENTLY REPRESENTED PATH UP TO BUT NOT INCLUDING
+        %\image_name.jpg (so change the value of a(1:x))
+        currentpath= a(1:60) %specific to Rayna's file path, change later (35 for rayna?)
+%         currentpath='poop';
+
         b= a(37:end); %same as above^
         %newpath= fullfile('C:\Users\jmara\OneDrive\Desktop\Rat video series\FullDataSet\',b);
         newpath= 'C:\Users\jmara\OneDrive\Desktop\Rat video series\FullDataSet';
