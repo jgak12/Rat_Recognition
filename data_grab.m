@@ -1,7 +1,22 @@
 
 
-load('prac_data.mat');
-origData= prac_data;
+% load('prac_data.mat');
+% origData= prac_data;
+
+load('C:\Users\jmara\OneDrive\Documents\MATLAB\Rat_Recog\ImageLabeled\TrainingTable\FilesAndLabels.mat');
+
+%Original Blank images caused by the fact that the first image is a black
+%screen in the test file
+figure
+% imshow('C:\Users\jmara\OneDrive\Desktop\Rat video series\JohnsImages\pic2001.jpg')
+subplot(1,2,1)
+imshow('C:\Users\jmara\OneDrive\Desktop\Rat video series\FullDataSet\pic195.jpg')
+subplot(1,2,2)
+imshow('C:\Users\jmara\OneDrive\Desktop\Rat video series\FullDataSet\pic3000.jpg')
+% imshow()
+
+
+origData= FilesAndLabels;
 
 rng(0);
 shuffleIndices=randperm(height(origData)); % randomizes order of image indices
@@ -16,13 +31,13 @@ validationSet= origData(shuffleIndices(validationIdx),:); %pulls next 10% to val
 testIdx= validationIdx(end)+1: length(shuffleIndices);
 testSet= origData(shuffleIndices(testIdx),:);
 
-imgTrain= imageDatastore(trainingSet{:,'Var1'});
-labelTrain= boxLabelDatastore(trainingSet(:,'Rat'));
+imgTrain= imageDatastore(trainingSet{:,'imageFilename'}); %Was Var1
+labelTrain= boxLabelDatastore(trainingSet(:,'Rat')); 
 
-imgVal= imageDatastore(trainingSet{:,'Var1'});
+imgVal= imageDatastore(trainingSet{:,'imageFilename'});
 labelVal= boxLabelDatastore(trainingSet(:,'Rat'));
 
-imgTest= imageDatastore(trainingSet{:,'Var1'});
+imgTest= imageDatastore(trainingSet{:,'imageFilename'});
 labelTest= boxLabelDatastore(trainingSet(:,'Rat'));
 
 %Combine datastores
@@ -31,6 +46,7 @@ valData= combine(imgVal, labelVal);
 testData= combine(imgTest, labelTest);
 
 %test
+check= read(trainingData);
 check= read(trainingData);
 I= check{1};
 bbox= check{2};
@@ -47,6 +63,7 @@ augmentedTrainData= transform(trainingData,@augmentData);
 augmentedData = cell(4,1);
 for k = 1:4
     data = read(augmentedTrainData);
+    data= read(augmentedTrainData);
     augmentedData{k} = insertShape(data{1},'Rectangle',data{2});
     reset(augmentedTrainData);
 end
