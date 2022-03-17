@@ -22,6 +22,7 @@ processedTrainData= transform(augmentedTrainData, @(data)preprocessData(data,ima
 processedValData= transform(valData, @(data)preprocessData(data,imageSize));
 
 data= read(processedTrainData);
+%data= read(processedTrainData)
 
 I = data{1};
 bbox = data{2};
