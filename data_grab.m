@@ -3,7 +3,7 @@
 % load('prac_data.mat');
 % origData= prac_data;
 
-load('C:\Users\jmara\OneDrive\Documents\MATLAB\Rat_Recog\ImageLabeled\TrainingTable\FilesAndLabels.mat');
+load('C:\Users\jmara\OneDrive\Documents\MATLAB\Rat_Recog\ImageLabeled\TrainingTable\CleanFnL.mat');
 
 %Original Blank images caused by the fact that the first image is a black
 %screen in the test file
@@ -47,7 +47,7 @@ testData= combine(imgTest, labelTest);
 
 %test
 check= read(trainingData);
-check= read(trainingData);
+%check= read(trainingData);
 I= check{1};
 bbox= check{2};
 
@@ -63,7 +63,7 @@ augmentedTrainData= transform(trainingData,@augmentData);
 augmentedData = cell(4,1);
 for k = 1:4
     data = read(augmentedTrainData);
-    data= read(augmentedTrainData);
+    %data= read(augmentedTrainData);
     augmentedData{k} = insertShape(data{1},'Rectangle',data{2});
     reset(augmentedTrainData);
 end
