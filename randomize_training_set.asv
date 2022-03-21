@@ -1,0 +1,24 @@
+function list = randomize_training_set(folder_path)
+    loc= folder_path;
+    files= dir(loc);
+    list= {files.name};
+    
+    
+
+    for i=1:size(list,2)-2
+        list(i)= fullfile(folder_path,list(i+2));
+    end
+    list(end-1:end)=[];
+    list
+
+    randPerm= num2str(randperm(size(list,2));
+    newPath= loc + num2s
+    newlist= zeros(1,size(list,2));
+    for q=1:size(newlist,2)
+        newlist(q)= strcat(folder_path,randPerm(q));
+    end
+
+    for j=1:size(list,2)
+        movefile(list(j),newlist(j))
+    end
+end
