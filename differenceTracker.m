@@ -1,9 +1,38 @@
-path= 'C:\Users\jmara\OneDrive\Desktop\Rat video series\DifferenceTrain'
+%%paired w frame_compare
+%will take an input of a file path full of image files in sequence
+%returns a table of xy values for each file
 
-img1=imread(fullfile(path,"image_0001.jpg"));
-img2=imread(fullfile(path,"image_0002.jpg"));
+%path= 'C:\Users\jmara\OneDrive\Desktop\Rat video series\DifferenceTrain'
+path='/Users/johnmaragakis/Documents/GitHub/Rat_Recognition/DifferenceImgs';
 
-[x y z]= frame_compare(img1,img2)
+loc= path;
+files= dir(loc);
+list= {files.name};
+
+img1= imread(fullfile(loc,list{1,3}));
+imgList=[]; %maybe change to zeros() to preallocate later on
+xlist=[];
+ylist=[];
+
+for i= 3:15 %size(list,2)-1
+
+%     img1=imread(fullfile(path,"image_0001.jpg"));
+%     img2=imread(fullfile(path,"image_0002.jpg"));
+
+
+        img1=imread(fullfile(path,list{1,i}));
+        img2=imread(fullfile(path,list{1,i+1}));
+        [x y z]= frame_compare(img1,img2);
+        imgList=[imgList;list{1,i+1}];
+        xlist= [xlist;x];
+        ylist= [ylist;y];
+        
+
+end
+t= table(imgList,xlist,ylist);
+
+
+
 % % load(fullfile(path,"image_0001.jpg"))
 % % load(fullfile(path,"image_0002.jpg"))
 % 

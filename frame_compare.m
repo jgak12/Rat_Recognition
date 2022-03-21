@@ -1,3 +1,5 @@
+%%% Paired w differenceTracker
+
 function [xavg,yavg,markedImg] = frame_compare(frame1,frame2)
     %FRAME_COMPARE Summary of this function goes here
     %   Detailed explanation goes here
@@ -14,15 +16,15 @@ function [xavg,yavg,markedImg] = frame_compare(frame1,frame2)
     
     
     
-    figure
-    subplot(2,2,1)
-    imshow(a);
-    subplot(2,2,2)
-    imshow(b);
+%     figure
+%     subplot(2,2,1)
+%     imshow(a);
+%     subplot(2,2,2)
+%     imshow(b);
     
     c= a-b;
-    subplot(2,2,3)
-    imshow(c);
+%     subplot(2,2,3)
+%     imshow(c);
     xavg=0;
     yavg=0;
     
@@ -43,7 +45,7 @@ function [xavg,yavg,markedImg] = frame_compare(frame1,frame2)
         end
     end
     
-    subplot(2,2,4)
+%     subplot(2,2,4)
     %imshow(difArray);
     
     weightTot=0;
@@ -65,7 +67,7 @@ function [xavg,yavg,markedImg] = frame_compare(frame1,frame2)
     
     dot= insertMarker(difArray,pos,'plus');
     markedImg= insertMarker(a,pos,'plus');
-    imshow(dot)
+    %imshow(dot)
     figure
     imshow(markedImg)
     

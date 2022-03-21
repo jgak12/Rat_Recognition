@@ -1,6 +1,7 @@
 function list = randomize_training_set(folder_path)
  %randomize_training_set('C:\Users\jmara\OneDrive\Desktop\Rat video series\FullDataSet')
     
+    %gets list of all things in directory?
     loc=folder_path;
     files= dir(loc);
     list= {files.name};
