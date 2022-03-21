@@ -3,6 +3,7 @@
 % load('prac_data.mat');
 % origData= prac_data;
 
+%load('C:\Users\jmara\OneDrive\Documents\MATLAB\Rat_Recog\ImageLabeled\TrainingTable\CleanFnLNew.mat');
 load('C:\Users\jmara\OneDrive\Documents\MATLAB\Rat_Recog\ImageLabeled\TrainingTable\CleanFnL.mat');
 
 %Original Blank images caused by the fact that the first image is a black
@@ -17,10 +18,11 @@ imshow('C:\Users\jmara\OneDrive\Desktop\Rat video series\FullDataSet\pic3000.jpg
 
 
 origData= FilesAndLabels;
+%origData=CleanFnLNew;
 
 rng(0);
 shuffleIndices=randperm(height(origData)); % randomizes order of image indices
-idx= floor(0.6 * length(shuffleIndices)); %sets first 60%
+idx= floor(0.8 * length(shuffleIndices)); %sets first 60%
 
 trainingIdx= 1:idx;
 trainingSet= origData(shuffleIndices(trainingIdx),:); %pulls first 60% of data into training
