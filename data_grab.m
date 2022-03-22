@@ -1,3 +1,10 @@
+% %%This script: 
+% loads the table with img filepaths and bounding box coordinates
+% shows 2 random images on screen
+% splits data into training, validation, and test sets
+% displays a sample image with its box
+% augments the training data with augmentData
+%(FIRST STEP IN TRAINING WORKFLOW) --> network_setup
 
 
 % load('prac_data.mat');

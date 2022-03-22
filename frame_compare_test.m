@@ -1,15 +1,6 @@
-%%% Paired w differenceTracker
-
-function [xavg,yavg,markedImg] = frame_compare(frame1,frame2)
+function [xavg,yavg,markedImg] = frame_compare_test(frame1,frame2)
     %FRAME_COMPARE Summary of this function goes here
-    %   Returns weighted center position of all movement in an image as
-    %   well as the second image with a marker placed
-    % If change is not enough to trigger a position: [0 0 unmarkedImg] is
-    % returned
-
-    %sets sensitivity to trigger location change
-    sens_coef=1.1; %alter this only
-    sensitivity= sens_coef*10000000;
+    %   Detailed explanation goes here
 
     x_out=0;
     y_out=0;
@@ -35,7 +26,7 @@ function [xavg,yavg,markedImg] = frame_compare(frame1,frame2)
     xavg=0;
     yavg=0;
     
-    a(1,1,1);
+    a(1,1,1)
     difArray= zeros(size(a,1),size(a,2));
     totPixelDif=0;
     numNonZpixels=0;
@@ -45,7 +36,7 @@ function [xavg,yavg,markedImg] = frame_compare(frame1,frame2)
                 chanPixelDif= c(pixely,pixelx,pixelrgb);
                 totPixelDif= totPixelDif+ chanPixelDif;
             end
-            if totPixelDif>100
+            if totPixelDif>25
                 difArray(pixely,pixelx)=totPixelDif;
             end
             totPixelDif=0;
@@ -61,35 +52,23 @@ function [xavg,yavg,markedImg] = frame_compare(frame1,frame2)
             %Attempted to weight position averages by intensity and got
             %confused. Just going to do avg pos for now
             %JK gonna try anyway
-            xavg= xavg + (difArray(pixely,pixelx)*pixelx);
-            yavg= yavg +(difArray(pixely,pixelx)*pixely);
-    
-            weightTot= weightTot + difArray(pixely,pixelx);
+            if difArray(pixely,pixelx)>0
+                xavg= xavg + pixelx;
+                yavg= yavg +pixely;
+        
+                weightTot= weightTot + 1;
+            end
     
         end
     end
+    xavg=round(xavg/weightTot);
+    yavg=round(yavg/weightTot);
+    pos= [xavg yavg];
     
-    if xavg>sensitivity
-        xavg=round(xavg/weightTot);
-        yavg=round(yavg/weightTot);
-        pos= [xavg yavg];
-    else
-        xavg=0;
-        yavg=0;
-        pos=[xavg yavg];
-    end
-    
-    if pos(1)>0 && pos(1)<640 && pos(2)>0 && pos(2)<480
-        dot= insertMarker(difArray,pos,'plus');
-        markedImg= insertMarker(b,pos,'plus');
-    else
-        dot= difArray;
-        markedImg=b;
-    end
-    
+    dot= insertMarker(difArray,pos,'plus');
+    markedImg= insertMarker(a,pos,'plus');
     %imshow(dot)
     %figure
-    %imshow(markedImg);
+    %imshow(markedImg)
     
 end
-

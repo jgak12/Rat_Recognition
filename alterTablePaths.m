@@ -1,17 +1,20 @@
-%function [outputArg1,outputArg2] = untitled(inputArg1,inputArg2)
-    %UNTITLED Summary of this function goes here
-    %   Detailed explanation goes here
+function [OutputTable] = alterTablePaths(inputTable,newbasepath)
+    %Takes a Nx2 table with image filepaths in the first column and
+    %bounding box coordinates in the second. Replaces path with input
+    %'newbasepath' but keeps image name and order.
 
-    %newbase='C:\jokeplace\'
-    newbase='/gpfs/home/jmaragak/NetworkTrain/Rat_Recognition/FullData/'
-
-    load('C:\Users\jmara\OneDrive\Documents\MATLAB\Rat_Recog\ImageLabeled\TrainingTable\CleanFnL.mat')
+    %Example: when going from Windows to Oracle Linux
+    %newbasepath='/gpfs/home/jmaragak/NetworkTrain/Rat_Recognition/FullData/'
+    
+    %Function used to take input table filepath, but currently can be run
+    %just by giving the input table itself
+    %inputTable= importdata('C:\Users\jmara\OneDrive\Documents\MATLAB\Rat_Recog\ImageLabeled\TrainingTable\CleanFnL.mat');
     %load('/gpfs/home/jmaragak/NetworkTrain/Rat_Recognition/ImageLabeled/TrainingTable/CleanFnL.mat')
 
 
-    outputTable= FilesAndLabels;
-    label= char(outputTable{1,1})
-    a=length(label)
+    outputTable= inputTable;
+    label= char(outputTable{1,1});
+    a=length(label);
     ind=0;
     for i=1:a
         if label(i)== '\' || label(i)=='/'
@@ -28,9 +31,10 @@
     for i=1:size(outputTable,1)
         fullName= char(outputTable{i,1});
         imgTag= fullName(ind+1:end);
-        outputTable(i,1)= {strcat(newbase, imgTag)};
+        outputTable(i,1)= {strcat(newbasepath, imgTag)};
     end
-    CleanFnLNew= outputTable;
+    OutputTable= outputTable;
+end
 
 
 

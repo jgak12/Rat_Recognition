@@ -1,4 +1,5 @@
 %%read AVIs, break into frame by frame %%
+%%Maya's fxn
 function still_frames = avi_processing(mp4_file)
 video = VideoReader(mp4_file);
 

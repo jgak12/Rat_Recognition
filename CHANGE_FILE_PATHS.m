@@ -1,5 +1,8 @@
 %function newStore= fix_file_paths(img_path,label_file)
     %disp(gTruth.DataSource{2,1})
+
+    %% This is an old function from when we were trying to use datastores.
+    %% It works but using alterTablePaths on a table is a million times easier and more effective.
     
     practice= gTruth
     practice.DataSource

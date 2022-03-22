@@ -1,8 +1,11 @@
-
-
-
-
-
+%%THIS FUNCTION:
+%sets input image size and number of object classes
+%Preprocesses the training and validation data
+%Runs an anchor box dimension estimator from the input data
+%loads the resnet feature extractor
+%Sets an activation layer
+%Establishes the yolov2 network based on these parameters
+%(SECOND STEP IN NETWORK WORKFLOW) --> train.m
 
 %data initialize
 %ratTrainData= preprocess();

@@ -1,4 +1,6 @@
 %COMBINE DATA STORES
+%%Another nightmare function from using datastores.
+%% it worked eventually but again, combining tables is much easier then converting to datastores separately
 
 % [n, ~] = size(gTruth.DataSource);
 % newstr = 'FullDataSet';
