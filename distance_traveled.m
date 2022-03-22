@@ -5,7 +5,7 @@
 % width, height)
 %while loop that's true when there are new frames to check
 
-function [total_distance] = distance_traveled(table_x)
+function [total_distance] = distance_traveled(table_x, start, finish)
 a = table_x;
 %disp(a(1,1)); %output is a cell with an array inside of it -- need to write code that pulls out those values for one cell
 a{1,"Rat"};
