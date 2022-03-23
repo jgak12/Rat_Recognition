@@ -6,12 +6,14 @@
 %while loop that's true when there are new frames to check
 
 function [total_distance] = distance_traveled(table_x, start, finish)
+%
+
 a = table_x;
 %disp(a(1,1)); %output is a cell with an array inside of it -- need to write code that pulls out those values for one cell
-a{1,"Rat"};
+a{:,2};
 n = 1; %eventually going to do n = a to b
 start = 1;
-finish = 24;
+finish = height(a);
 total_distance = 0;
     for n = start:finish
         coords1 = a.Rat{n};
