@@ -13,6 +13,11 @@ function [total_distance] = distance_traveled_version2(table_x, start, finish)
     
         distance = sqrt((x2 - x1)^2 + (y2 - y1)^2);
         total_distance = total_distance + distance;
+  
     end
+     x = working_table{:,2}
+     y = working_table{:,3}
+     figure
+     plot(x,y) %plot of where the rat was over the course of the frames
     total_distance %displays the total distance the rat moved over the course of the frames you selected
 end
