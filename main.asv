@@ -1,0 +1,6 @@
+%%MAIN FXN
+
+a= pwd
+b=[pwd 'a']
+
+%path_to_imgfolder= char(pwd)
