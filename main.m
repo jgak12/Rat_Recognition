@@ -10,4 +10,6 @@ path_to_imgfolder= [pwd img_folder_path];
 %%posTable= differenceTracker(path_to_imgfolder,1);
 posTable= trackedOutput;
 
-totDistance= distance_traveled_version2(posTable,1,10000000);
+totDistance= distance_traveled_version2(posTable,1,10000000,true);
+
+plot= freezing(posTable);

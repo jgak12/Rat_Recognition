@@ -24,13 +24,15 @@ end
 times_per_min = round(180 / frame_diff);
 
 min_sums = [];
+size(freezing_times,2)
 
 for ii = 1:times_per_min:size(freezing_times,2)-1
-    if ii + times_per_min < size(freezing_times,2)-1
-        min_sums = [min_sums sum(freezing_times(ii:(times_per_min + ii)))];
-    else
-        min_sums= [min_sums sum(freezing_times(ii:end))];
-    end
+    sum(freezing_times(ii:))
+%     if ii + times_per_min < size(freezing_times,2)-1
+%         min_sums = [min_sums sum(freezing_times(ii:(times_per_min * ii)))];
+%     else
+%         min_sums= [min_sums sum(freezing_times(ii:end))];
+%     end
 end
 
 freeze_plot = figure;
