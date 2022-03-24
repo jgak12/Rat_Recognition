@@ -13,3 +13,10 @@ posTable= trackedOutput;
 totDistance= distance_traveled_version2(posTable,1,10000000,true);
 
 plot= freezing(posTable);
+
+input('press Enter to show tracking','s')
+
+trackOverlay(posTable);
+
+
+

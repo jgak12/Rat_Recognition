@@ -73,7 +73,7 @@ function [xavg,yavg,markedImg] = frame_compare(frame1,frame2)
         xavg=round(xavg/weightTot);
         yavg=round(yavg/weightTot);
         pos= [xavg yavg];
-    else
+    else %returns 0 0 if change is below threshold
         xavg=0;
         yavg=0;
         pos=[xavg yavg];
