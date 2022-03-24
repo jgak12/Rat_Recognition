@@ -20,6 +20,7 @@ function [outputTable]= differenceTracker(path,checkInterval)
     y_last=240;
     figure;
     for i= 3:checkInterval:size(list,2)-1
+    %for i= 3:14
     
     %     img1=imread(fullfile(path,"image_0001.jpg"));
     %     img2=imread(fullfile(path,"image_0002.jpg"));
@@ -56,9 +57,33 @@ function [outputTable]= differenceTracker(path,checkInterval)
             end
             
     
-    
            % pause(0.0001);
     end
-    
+
+
+
+    %%This is a test for checking a smaller box for differences once
+    %%original position is found
+%     for i=15:checkInterval:size(list,2)-1
+%         img1=imread(fullfile(path,list{1,i}));
+%         img2=imread(fullfile(path,list{1,i+1}));
+%         [x y z]=frame_compare(img1,img2);
+%     
+%         imgList=[imgList;list{1,i+1}];
+%         
+%         if x~=0
+%             xlist= [xlist;x];
+%             ylist= [ylist;y];
+%             x_last=x;
+%             y_last=y;
+%             imshow(z);
+%         else
+%             temp_loc= [x_last y_last];
+%             imshow(insertMarker(z,temp_loc,'plus'));
+%             xlist=[xlist;x_last];
+%             ylist=[ylist;y_last];
+%         end
+%     end
+
     outputTable= table(imgList,xlist,ylist);
 end
