@@ -30,12 +30,16 @@ function [xavg,yavg,markedImg] = frame_compare(frame1,frame2)
 %     subplot(2,2,2)
 %     imshow(b);
     
+    %subtracts the two images' values
     c= a-b;
+
 %     subplot(2,2,3)
 %     imshow(c);
     xavg=0;
     yavg=0;
     
+    %creates a 2d array(difArray) that sums each pixel's differences across all 3
+    %channels
     a(1,1,1);
     difArray= zeros(size(a,1),size(a,2));
     totPixelDif=0;
@@ -56,12 +60,12 @@ function [xavg,yavg,markedImg] = frame_compare(frame1,frame2)
 %     subplot(2,2,4)
     %imshow(difArray);
     
+    %calculates rat location by taking the weighted average of all pixel
+    %locations with differences
     weightTot=0;
     for pixelx=1: size(difArray,2)
         for pixely=1:size(difArray,1)
-            %Attempted to weight position averages by intensity and got
-            %confused. Just going to do avg pos for now
-            %JK gonna try anyway
+
             xavg= xavg + (difArray(pixely,pixelx)*pixelx);
             yavg= yavg +(difArray(pixely,pixelx)*pixely);
     
@@ -70,6 +74,8 @@ function [xavg,yavg,markedImg] = frame_compare(frame1,frame2)
         end
     end
     
+    %determines if enough difference was detected in the entire image to
+    %justify a position update (determined by sensitivity)
     if xavg>sensitivity
         xavg=round(xavg/weightTot);
         yavg=round(yavg/weightTot);
@@ -80,6 +86,7 @@ function [xavg,yavg,markedImg] = frame_compare(frame1,frame2)
         pos=[xavg yavg];
     end
     
+    %loads images with their markers
     if pos(1)>0 && pos(1)<640 && pos(2)>0 && pos(2)<480
         dot= insertMarker(difArray,pos,'plus');
         markedImg= insertMarker(b,pos,'plus');

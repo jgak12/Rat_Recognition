@@ -13,7 +13,8 @@ function [OutputTable] = alterTablePaths(inputTable,newbasepath)
     %inputTable= importdata('C:\Users\jmara\OneDrive\Documents\MATLAB\Rat_Recog\ImageLabeled\TrainingTable\CleanFnL.mat');
     %load('/gpfs/home/jmaragak/NetworkTrain/Rat_Recognition/ImageLabeled/TrainingTable/CleanFnL.mat')
 
-
+    %finds the index of the actual filenames from the full paths in the
+    %table
     outputTable= inputTable;
     label= char(outputTable{1,1});
     a=length(label);
@@ -30,6 +31,8 @@ function [OutputTable] = alterTablePaths(inputTable,newbasepath)
 
 
     %inputTable{1,1}={'hi'};
+    %changes the filepaths in the first column of the table to the
+    %newbasepath + filenames
     for i=1:size(outputTable,1)
         fullName= char(outputTable{i,1});
         imgTag= fullName(ind+1:end);

@@ -12,9 +12,11 @@
 % load('prac_data.mat');
 % origData= prac_data;
 
+%loads the input table of image paths and corresponding bounding boxes
 %load('C:\Users\jmara\OneDrive\Documents\MATLAB\Rat_Recog\ImageLabeled\TrainingTable\CleanFnLNew.mat');
 load('C:\Users\jmara\OneDrive\Documents\MATLAB\Rat_Recog\ImageLabeled\TrainingTable\CleanFnL.mat');
 
+%visualizes a few of those images
 %Original Blank images caused by the fact that the first image is a black
 %screen in the test file
 figure
@@ -25,7 +27,7 @@ subplot(1,2,2)
 imshow('C:\Users\jmara\OneDrive\Desktop\Rat video series\FullDataSet\pic3000.jpg')
 % imshow()
 
-
+%copies data to origData
 origData= FilesAndLabels;
 %origData=CleanFnLNew;
 
@@ -62,6 +64,7 @@ check= read(trainingData);
 I= check{1};
 bbox= check{2};
 
+%inserts boxes onto the images
 imageWBox= insertShape(I,"Rectangle",bbox);
 imageWBox= imresize(imageWBox,2);
 figure

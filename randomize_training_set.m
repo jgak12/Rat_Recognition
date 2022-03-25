@@ -1,4 +1,6 @@
 %Written/used by john ~3 hours
+%Was used to take an unbiased subset of random images from a large bank of videos
+%in order to annotate them by hand and pass them to the network to train
 
 function list = randomize_training_set(folder_path)
  %randomize_training_set('C:\Users\jmara\OneDrive\Desktop\Rat video series\FullDataSet')

@@ -1,4 +1,8 @@
-%% this script begins training on the neural network setup in the last step(network_setup)
+%Written by John ~4 hours
+%Lots of time spent altering these values and adding options in order to
+%optimize the model training
+
+% this script begins training on the neural network setup in the last step(network_setup)
 %sets checkpoint filepath and training options
 %begins training
 %run on computer with NVIDIA GPU if at all possible (requires parallel
