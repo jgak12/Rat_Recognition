@@ -1,4 +1,5 @@
-
+%Written by Rayna
+%Debugged by John ~1 hour
 function [total_distance] = distance_traveled_version2(table_x, start, finish, outputPlot)
     working_table = table_x; %use output from John's movement tracker
     total_distance = 0;

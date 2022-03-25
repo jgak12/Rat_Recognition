@@ -1,4 +1,5 @@
 %NOTE: NOT OUR CODE, MATLAB PROVIDED
+%Implemented for network training -John
 
 function boxes = helperSanitizeBoxes(boxes, imageSize)
 persistent hasInvalidBoxes

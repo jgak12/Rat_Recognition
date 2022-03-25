@@ -1,3 +1,7 @@
+%Written by John ~1 hours
+%takes the output data table from differenceTracker and produces a video
+%with the rat location history overlayed on the images
+
 function [] = trackOverlay(inputTable)
     pathStart='/Users/johnmaragakis/Documents/GitHub/Rat_Recognition/DifferenceImgs/';
     

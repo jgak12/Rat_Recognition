@@ -1,3 +1,4 @@
+%Written by John as a function of differenceTracker (~4 hours)
 %%% Paired w differenceTracker
 
 function [xavg,yavg,markedImg] = frame_compare(frame1,frame2)

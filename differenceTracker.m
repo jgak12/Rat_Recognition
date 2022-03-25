@@ -1,3 +1,7 @@
+%Written/debugged by John when locating Rats by neural net was made
+%impossible by Oscar limitations
+%~3 hours
+
 %%paired w frame_compare
 %will take an input of a file path full of image files in sequence
 %returns a table of xy values for each file

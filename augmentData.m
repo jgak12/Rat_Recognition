@@ -1,9 +1,9 @@
-
+%Implemented by John ~1 hour
 %This function needs to randomly flip, and scale data
 %should also do the same to all the boxes
 %Also color jitter
-%NOTE: NOT OUR CODE, MATLAB PROVIDED (edited now)
-%we should probably do this on our own but for now i am going to borrow their code 
+%NOTE: NOT ENTIRELY OUR CODE, MATLAB PROVIDED (edited now)
+%most of the work here was implementing their code into our program 
 
 function B = augmentData(A)
     % Apply random horizontal flipping, and random X/Y scaling. Boxes that get

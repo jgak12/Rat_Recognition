@@ -1,3 +1,7 @@
+
+%Written by Maya
+%Debugged by John ~1 hour
+
 function freeze_plot = freezing(table)
 
 %%takes a table of rat position data and outputs a plot with the amount

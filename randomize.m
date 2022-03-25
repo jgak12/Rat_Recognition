@@ -1,3 +1,5 @@
+%Maya
+
 function dataset = randomize()
 %creates a folder of 100 random images from all of our video frame to make
 %diverse datasets for training

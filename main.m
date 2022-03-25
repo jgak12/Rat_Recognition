@@ -1,4 +1,7 @@
 %%MAIN FXN
+%Runs all functionality of this repo on any image dataset loaded into the
+%program
+%John ~1 hour
 
 img_folder_path= '/DifferenceImgs';
 

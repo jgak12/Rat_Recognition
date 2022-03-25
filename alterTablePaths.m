@@ -1,3 +1,5 @@
+%By John write/debug ~2 hours
+
 function [OutputTable] = alterTablePaths(inputTable,newbasepath)
     %Takes a Nx2 table with image filepaths in the first column and
     %bounding box coordinates in the second. Replaces path with input

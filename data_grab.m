@@ -1,3 +1,5 @@
+%By John for neural network setup ~6 hours
+
 % %%This script: 
 % loads the table with img filepaths and bounding box coordinates
 % shows 2 random images on screen

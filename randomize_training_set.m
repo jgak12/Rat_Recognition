@@ -1,3 +1,5 @@
+%Written/used by john ~3 hours
+
 function list = randomize_training_set(folder_path)
  %randomize_training_set('C:\Users\jmara\OneDrive\Desktop\Rat video series\FullDataSet')
     
@@ -30,9 +32,7 @@ function list = randomize_training_set(folder_path)
 %         i
 %         z=num2str(tempnum)
         newlist{i}=strcat(loc1{i}, '\pic', num2str(tempnum),".jpg"); 
-        %ok going to eat before i die/murder someone but the issue is that
-        %there are double digit numbers in the char array
-        %need to find a way to get the next full number each time
+
     end
 
     for j=1:size(list,2)

@@ -1,3 +1,6 @@
+%Written by John ~3 hours
+%initializes neural network before training
+
 %%THIS FUNCTION:
 %sets input image size and number of object classes
 %Preprocesses the training and validation data
