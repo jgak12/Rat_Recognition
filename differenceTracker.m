@@ -48,10 +48,10 @@ function [outputTable]= differenceTracker(path,checkInterval)
                 ylist= [ylist;y];
                 x_last=x;
                 y_last=y;
-                imshow(z);
+                imshow(z,'InitialMagnification',8000);
             else
                 temp_loc= [x_last y_last];
-                imshow(insertMarker(z,temp_loc,'plus'));
+                imshow(insertMarker(z,temp_loc,'plus'),'InitialMagnification',8000);
                 xlist=[xlist;x_last];
                 ylist=[ylist;y_last];
             end

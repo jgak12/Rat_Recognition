@@ -18,7 +18,7 @@ function [] = trackOverlay(inputTable)
     for i=1:size(working,1)-1
         a= importdata(strcat(pathStart,working{i,1}));
         a=insertShape(a,'Line',linepos(1:i,:));
-        imshow(a);
+        imshow(a,'InitialMagnification',8000);
         %pause(0.25);
     end
 

@@ -7,16 +7,18 @@ path_to_imgfolder= [pwd img_folder_path];
 
 %This runs the difference tracker and makes pos data,
 %in the meantime, loading trackedOutput from old data is faster
-%%posTable= differenceTracker(path_to_imgfolder,1);
-posTable= trackedOutput;
+posTable= differenceTracker(path_to_imgfolder,2);
+%posTable= trackedOutput;
 
 totDistance= distance_traveled_version2(posTable,1,10000000,true);
 
 plot= freezing(posTable);
 
-input('press Enter to show tracking','s')
+%input('press Enter to show tracking','s')
 
 trackOverlay(posTable);
+
+
 
 
 
